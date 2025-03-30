@@ -16,4 +16,6 @@ def list_files():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    import os
+    port = int(os.environ.get("PORT", 5000))  # Use PORT from environment
+    app.run(host='0.0.0.0', port=port)        # Bind to 0.0.0.0 for external access
