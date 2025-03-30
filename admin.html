@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-10">
+    <div class="max-w-2xl mx-auto bg-white p-6 rounded shadow-md">
+        <h2 class="text-2xl font-bold mb-4">Admin Panel</h2>
+        <input type="text" id="searchBar" class="border p-2 w-full mb-4" placeholder="Enter file name..." oninput="searchFiles()">
+        <ul id="fileList" class="list-disc pl-5"></ul>
+        <p id="noFilesMessage" class="text-gray-500 hidden">No files found.</p>
+    </div>
+
+    <script>
+        function fetchFiles() {
+            let fileList = document.getElementById('fileList');
+            let noFilesMessage = document.getElementById('noFilesMessage');
+            fileList.innerHTML = "";
+            
+            fetch('http://127.0.0.1:5000/list-files')
+                .then(response => response.json())
+                .then(files => {
+                    if (!files || files.length === 0 || files.error) {
+                        noFilesMessage.classList.remove('hidden');
+                    } else {
+                        noFilesMessage.classList.add('hidden');
+                        files.forEach(file => {
+                            let li = document.createElement('li');
+                            li.textContent = file;
+                            fileList.appendChild(li);
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching file list:', error);
+                    noFilesMessage.classList.remove('hidden');
+                });
+        }
+
+        function searchFiles() {
+            let query = document.getElementById('searchBar').value.toLowerCase();
+            let items = document.querySelectorAll('#fileList li');
+            let noFilesMessage = document.getElementById('noFilesMessage');
+            let anyVisible = false;
+            
+            items.forEach(item => {
+                if (item.textContent.toLowerCase().includes(query)) {
+                    item.style.display = '';
+                    anyVisible = true;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            noFilesMessage.classList.toggle('hidden', anyVisible);
+        }
+
+        document.addEventListener("DOMContentLoaded", fetchFiles);
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ganga Jyoti Fire Service</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html, body {
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+    }
+    .container {
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+    }
+    .service-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+<header class="bg-red-700 text-white p-6 shadow-lg">
+  <div class="container mx-auto flex justify-between items-center">
+    <div class="flex flex-col space-y-2">
+      <h1 class="text-4xl font-extrabold text-white tracking-wide uppercase">Ganga Jyoti Fire Service</h1>
+      <div class="mt-7">
+        <p class="text-lg font-semibold">📞 +91 9823142618</p>
+        <p class="text-lg font-semibold">✉️ gangajyotijfireservices@gmail.com</p>
+      </div>
+    </div>
+    <nav class="space-x-6 text-lg">
+      <a href="products.html" class="hover:underline">Products</a>
+      <a href="rate-chart.html" class="hover:underline">Rate Chart</a>
+      <a href="about.html" class="hover:underline">About</a>
+      <a href="enquiry.html" class="hover:underline">Enquiry</a>
+      <a href="admin.html" class="hover:underline font-bold">Admin</a>
+    </nav>
+  </div>
+</header>
+  
+<section class="relative bg-cover bg-center py-28 text-white" style="background-image: url('images/fire_bg.jpg');">
+    <div class="container mx-auto text-center bg-black bg-opacity-50 p-10 rounded-lg">
+      <h2 class="text-5xl font-bold mb-4">Your Safety is Our Mission</h2>
+      <p class="text-xl mb-6">Certified fire extinguishers and safety services tailored for every need.</p>
+      <a href="products.html" class="bg-red-600 px-8 py-3 rounded text-white font-semibold hover:bg-red-800 transition">Explore Products</a>
+    </div>
+</section>
+
+<section class="py-16">
+  <div class="container mx-auto grid md:grid-cols-3 gap-10 text-center">
+    
+    <a href="service1.html" class="service-card shadow-lg p-6 rounded-lg border cursor-pointer">
+      <img src="images/service1.jpg" alt="Service 1" class="w-full h-48 object-cover rounded mb-4">
+      <h3 class="text-xl font-bold mb-2">New Fire Extinguisher</h3>
+      <p>Advanced extinguishers and suppression systems for factories and warehouses.</p>
+    </a>
+
+    <a href="service2.html" class="service-card shadow-lg p-6 rounded-lg border cursor-pointer">
+      <img src="images/service2.jpg" alt="Service 2" class="w-full h-48 object-cover rounded mb-4">
+      <h3 class="text-xl font-bold mb-2">Refill Fire Extinguisher</h3>
+      <p>Compact and easy-to-use fire safety kits for household use.</p>
+    </a>
+
+    <a href="service3.html" class="service-card shadow-lg p-6 rounded-lg border cursor-pointer">
+      <img src="images/service3.jpg" alt="Service 3" class="w-full h-48 object-cover rounded mb-4">
+      <h3 class="text-xl font-bold mb-2">Fire Extinguisher Demo</h3>
+      <p>Fire risk assessment and installation for commercial buildings and offices.</p>
+    </a>
+  </div>
+</section>
+
+<footer class="bg-red-700 text-white text-center p-4 mt-10">
+    &copy; 2025 Ganga Jyoti Fire Service. All rights reserved.
+</footer>
+
+<a href="enquiry.html" class="fixed bottom-6 right-6 bg-red-600 text-white px-4 py-3 rounded-full shadow-lg hover:bg-red-800 transition z-50">
+    Enquire Now
+</a>
+</body>
+</html>
